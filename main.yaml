@@ -1,0 +1,8 @@
+- name: configure {{ COMPONENT }} server
+  hosts: all
+  become: yes # use sudo to run tasks as root
+  vars_files:
+    - "variables-{{ ENVIRONMENT }}.yaml" # it loads respective variables from respective environment
+  roles:
+    - "{{ COMPONENT }}"
+# component will be given as backend, it triggers backend role
